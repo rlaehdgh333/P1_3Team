@@ -1,106 +1,84 @@
 package com.sist;
-
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.*;
-
-public class WaitRoom extends JPanel {
+public class WaitRoom extends JPanel{
 	Image back;
-	JTable table1, table2, table3;
-	// 테이블관리
-	DefaultTableModel model1, model2, model3;
-	// 채팅 3가지
+	JTable table1,table2,table3;
+	DefaultTableModel model1,model2,model3;
 	JTextArea ta;
 	JTextField tf;
 	JComboBox box;
-	JPanel movie; // 동영상
-	JButton b1, b2, b3, b4, b5, b6;
-
-	public WaitRoom() {
-		String[][] col3 = new String[1][1];
-		back = getToolkit().getDefaultToolkit().getImage("C:\\image\\back.jpg");
-		String[] coll = { "방이름", "공개/비공개", "인원" };
-		// 타이틀 잡기
-		String[][] row1 = new String[0][3];
-		// 배열인데 계속 추가 됨
-		model1 = new DefaultTableModel(row1, coll);
-		table1 = new JTable(model1);
-		JScrollPane js1 = new JScrollPane(table1);
-
-		String[] col2 = { "ID", "대화명", "성별", "위치" };
-		// 타이틀 잡기
-		String[][] row2 = new String[0][4];
-		// 배열인데 계속 추가 됨
-		model2 = new DefaultTableModel(row2, col2);
-		table2 = new JTable(model2);
-		JScrollPane js2 = new JScrollPane(table2);
-
-/*		col3[0][0] = "대기중 인원";
-		col3[1][0] = "ID";
-		col3[1][1] = "승률";
-
-		// 타이틀 잡기
-		String[][] row3 = new String[1][2];
-		// 배열인데 계속 추가 됨
-		model1 = new DefaultTableModel(row3, col3);
-		table1 = new JTable(model3);
-		JScrollPane js4 = new JScrollPane(table3);
-*/
-		// 채팅
-		ta = new JTextArea();
-		JScrollPane js3 = new JScrollPane(ta);
-		tf = new JTextField();
-		box = new JComboBox();
+	JPanel movie;
+	JButton b1,b2;
+	
+	public WaitRoom()
+	{
+		back=Toolkit.getDefaultToolkit().getImage("c:\\image\\back.jpg");
+		String[] coll={"방이름","인원","게임상태"};
+		String[][] row1=new String[0][3];
+		model1=new DefaultTableModel(row1, coll);
+		table1=new JTable(model1);
+		JScrollPane js1=new JScrollPane(table1);
+		
+		String[] col2={"순위","ID","승률"};
+		String[][] row2=new String[0][3];
+		model2=new DefaultTableModel(row2, col2);
+		table2=new JTable(model2);
+		JScrollPane js2=new JScrollPane(table2);
+		
+		String[] col4={"ID","승률"};
+		String[][] row4=new String[0][2];
+		model3=new DefaultTableModel(row4, col4);
+		table3=new JTable(model3);
+		JScrollPane js4=new JScrollPane(table3);
+		
+		//채팅
+		ta=new JTextArea();
+		JScrollPane js3=new JScrollPane(ta);
+		tf=new JTextField();
+		box=new JComboBox();
 		box.addItem("black");
 		box.addItem("blue");
 		box.addItem("pink");
 		box.addItem("green");
 		box.addItem("cyan");
-
-		movie = new JPanel();
+		
+		movie=new JPanel();
 		movie.setBackground(Color.black);
-
-		b1 = new JButton("방만들기");
-		b2 = new JButton("방 들어가기");
-		b3 = new JButton("게임신청");
-		b4 = new JButton("쪽지보내기");
-		b5 = new JButton("정보 보기");
-		b6 = new JButton("나가기");
-
+		
+		b1=new JButton("방만들기");
+		b2=new JButton("도움말");
+		
 		JPanel p = new JPanel();
-		// 묶을때 패널로 묶기
-		p.setLayout(new GridLayout(3, 2, 5, 5));
+		p.setLayout(new GridLayout(1,1,5,5));
 		p.add(b1);
 		p.add(b2);
-		p.add(b3);
-		p.add(b4);
-		p.add(b5);
-		p.add(b6);
-
+		
+		p.setOpaque(false);
+		
 		setLayout(null);
-		js1.setBounds(10, 15, 500, 320);
-		js2.setBounds(10, 340, 240, 220);
-		// js4.setBounds(505, 340,240, 200);
+		js1.setBounds(10, 10, 500, 325);
+		js3.setBounds(10, 340, 500, 190);
+		tf.setBounds(10, 535, 410, 30);
+		box.setBounds(425, 535, 85, 30);
+		js2.setBounds(515, 10, 265, 160);
+		js4.setBounds(515, 175, 265, 160);
+		movie.setBounds(515, 340, 265, 180);
+		p.setBounds(515, 525, 265, 40);
 		
-		js3.setBounds(515, 15, 265, 200);
-		
-		// 첫번째+세번째= 800이 넘으면 안됨 20은 간격을 빼고 생각해야됨 결국 780이됨
-		tf.setBounds(515, 220, 170, 30);
-		box.setBounds(695, 220, 85, 30);
-		movie.setBounds(515, 255, 265, 180); // j3
-		p.setBounds(515, 440, 265, 120);
 		add(js1);
-		add(js2);
 		add(js3);
 		add(tf);
 		add(box);
+		add(js2);
+		add(js4);
 		add(movie);
 		add(p);
 	}
-
 	@Override
 	protected void paintComponent(Graphics g) {
-		// paintComponent 자동 호출
-		g.drawImage(back, 0, 0, getWidth(), getHeight(), this);
+		g.drawImage(back, 0, 0, getWidth(),getHeight(),this); 
 	}
+
 }
