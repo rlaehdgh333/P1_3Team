@@ -42,7 +42,9 @@ public class HalliGalli_Server {
 	public void startServer() {
 		try {
 			// server = new ServerSocket(7777, 4);
-			InetAddress addr = InetAddress.getByName("211.238.142.88");
+			//InetAddress addr = InetAddress.getByName("211.238.142.88");
+			/*서버 실행시키는 Host의 IP를 읽어와 실행*/
+	         InetAddress addr = InetAddress.getLocalHost();
 			server = new ServerSocket(7777, 4, addr);
 			System.out.println("서버소켓이 생성되었습니다.");
 			while (true) {
