@@ -1,13 +1,14 @@
 package com.sist;
 import javax.swing.*;
 import java.awt.*;
-public class Sign extends JPanel{
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class Sign extends JFrame implements ActionListener{
 	Image back;
 	JLabel laName,laId,laPw,laC;
 	JTextField id,name;
 	JPasswordField pw;
 	JButton b1,b2,c1,c2,c3,c4;
-	JPopupMenu popup = new JPopupMenu();
 	
 	//저장 (초기화)
 	/*
@@ -58,16 +59,16 @@ public class Sign extends JPanel{
 		c4 = btn4;
 		
 		//배치
-		/*setLayout(new GridLayout(3, 2, 5, 5));
+		//setLayout(new GridLayout(3, 2, 5, 5));
 		//5는 좌우간격 그리고 위아래간격
 		//3은 세로에있는 값 2는 가로에 있는값 2개 들어감(칸막으로 생각하면)
-		 */		
+			
 		setLayout(null); //null은 사용자가 직접 지정한다. 로그인창 모양을 직접 지정
 		laName.setBounds(10, 15, 30, 30);
 		laId.setBounds(10, 50, 30, 30);
 		laPw.setBounds(10, 85, 30, 30);
 		laC.setBounds(10, 120, 39, 30);
-		//10+30 은 45(간격5포함) 15+30은 45
+
 		name.setBounds(45, 15, 150, 30);
 		id.setBounds(45, 50, 150, 30);
 		pw.setBounds(45, 85, 150, 30);
@@ -77,14 +78,6 @@ public class Sign extends JPanel{
 		c3.setBounds(135, 120, 30, 30);
 		c4.setBounds(175, 120, 30, 30);
 		
-	/*	c1.setBounds(45, 50, 150, 30);
-		c2.setBounds(45, 50, 150, 30);
-		c3.setBounds(45, 50, 150, 30);
-		c4.setBounds(45, 50, 150, 30);
-		
-		b1.setBounds(45, 50, 150, 30);
-		b2.setBounds(45, 50, 150, 30);
-		*/
 		
 		JPanel p=new JPanel(); //FlowLayout
 		p.add(b1);
@@ -93,21 +86,30 @@ public class Sign extends JPanel{
 		p.setBounds(10,150,185,35);  //가운데 부분
 		p.setOpaque(false); //투명
 		//추가
-		add(laName); add(laId);
-		add(laPw); add(laC);
-		add(name);add(id);
-		add(pw);add(c1);
-		add(c2);add(c3);
-		add(c4);
+		add(laName);add(name);
+		add(laId);add(id);
+		add(laPw);add(pw);
+		add(laC);add(c1);add(c2);add(c3);add(c4);
 		//add(b1); add(b2);
 		add(p);
 		
 		//추가되는 순서대로 되어있어야함.
+		setSize(230,235);
+	    //setVisible(true);
+	    
+	    b1.addActionListener(this);
+	    b2.addActionListener(this);
 	}
+	
 	@Override
-	protected void paintComponent(Graphics g) {
-		//paintComponent 자동 호출
-		g.drawImage(back, 0, 0, getWidth(),getHeight(),this);
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==b1){
+			JOptionPane.showMessageDialog(null,"회원가입완료!!");
+			dispose();
+	    }else if(e.getSource()==b2){
+	    	 dispose();
+	    }
 	}
 	
 }

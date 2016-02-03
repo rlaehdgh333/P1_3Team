@@ -10,7 +10,7 @@ public class WaitRoom extends JPanel{
 	JTextField tf;
 	JComboBox box;
 	JPanel movie;
-	JButton b1,b2;
+	JButton b1,b2,b3;
 	
 	public WaitRoom()
 	{
@@ -49,11 +49,13 @@ public class WaitRoom extends JPanel{
 		
 		b1=new JButton("방만들기");
 		b2=new JButton("도움말");
+		b3=new JButton("나가기");
 		
 		JPanel p = new JPanel();
 		p.setLayout(new GridLayout(1,1,5,5));
 		p.add(b1);
 		p.add(b2);
+		p.add(b3);
 		
 		p.setOpaque(false);
 		
@@ -62,10 +64,10 @@ public class WaitRoom extends JPanel{
 		js3.setBounds(10, 340, 500, 190);
 		tf.setBounds(10, 535, 410, 30);
 		box.setBounds(425, 535, 85, 30);
-		js2.setBounds(515, 10, 265, 160);
-		js4.setBounds(515, 175, 265, 160);
-		movie.setBounds(515, 340, 265, 180);
-		p.setBounds(515, 525, 265, 40);
+		js2.setBounds(515, 10, 270, 160);
+		js4.setBounds(515, 175, 270, 160);
+		movie.setBounds(515, 340, 270, 180);
+		p.setBounds(515, 525, 270, 40);
 		
 		add(js1);
 		add(js3);

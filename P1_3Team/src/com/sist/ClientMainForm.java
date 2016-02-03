@@ -5,11 +5,12 @@ import java.awt.event.*;
 public class ClientMainForm extends JFrame
 implements ActionListener{
 	
-	
 	CardLayout card= new CardLayout();
 	Login login=new Login(); //login은패널
 	WaitRoom wr=new WaitRoom();
 	Sign sign = new Sign();
+	Help h=new Help();
+	MakeRoom mr=new MakeRoom();
 	
 	// String name1 = name.getText().trim(); JTextField
 	public ClientMainForm()
@@ -18,10 +19,9 @@ implements ActionListener{
 		
 		add("LOG",login);
 		add("WR",wr);
-		add("SIGN",sign);
 		//크기
 		setSize(800, 600);
-		setLocation(200,200);
+		setLocation(200,150);
 		//윈도우 보여라
 		setVisible(true);
 		setResizable(false);
@@ -29,8 +29,9 @@ implements ActionListener{
 		login.b1.addActionListener(this);
 		login.b2.addActionListener(this);
 		wr.tf.addActionListener(this);
-		sign.b1.addActionListener(this);
-		sign.b2.addActionListener(this);
+		wr.b1.addActionListener(this);
+		wr.b2.addActionListener(this);
+		wr.b3.addActionListener(this);
 	}
 	
 	public static void main(String[] args) {
@@ -50,37 +51,31 @@ implements ActionListener{
 		{
 			card.show(getContentPane(), "WR");
 		}
-		else if(e.getSource() == login.b2){
-			setSize(250, 250);
-			card.show(getContentPane(),"SIGN");
-			
-		}
-	/*	else if(e.getSource() == "WR".b2){
-			setSize(250, 250);
-			card.show(getContentPane(),"SIGN");
-			
-		}*/
-		else if(e.getSource() == sign.b1){
-			// if(name1.length <= 2 || name1.length >= 10){}
-			setSize(800, 600);
-			
-			setLocation(200,200);
-			JOptionPane.showMessageDialog(null,"회원가입완료!!");
-			
-			card.show(getContentPane(),"LOG");
-			
-			
-		}
-		else if(e.getSource() == sign.b2){
-			setSize(800, 600);
-		
-			card.show(getContentPane(),"LOG");
+		else if(e.getSource()==login.b2)
+		{
+			sign.setBounds(500, 300, 230, 235);
+	        sign.setVisible(true);
 		}
 		else if(e.getSource()==wr.tf)
 		{
-			String data=wr.tf.getText();
-			wr.ta.append(data+"\n");
+			String data=wr.tf.getText(); //내가입력한값 가져오기
+			wr.ta.append(data+"\n"); //채팅창에 값붙이고 한줄내리기
 			wr.tf.setText("");
+		}
+		else if(e.getSource()==wr.b1)
+		{
+			mr.setBounds(500, 300, 230, 235);
+	        mr.setVisible(true);
+		}
+		else if(e.getSource()==wr.b2)
+		{
+			h.setBounds(285, 180, 300, 300);
+			h.setVisible(true);
+		}
+		else if(e.getSource()==wr.b3)
+		{
+			dispose();
+	    	System.exit(0);
 		}
 	}
 
