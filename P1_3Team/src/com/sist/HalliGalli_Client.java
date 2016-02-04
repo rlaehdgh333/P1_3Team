@@ -1,10 +1,4 @@
 package com.sist;
-/////////////////////////////////////////////////////
-
-// 제작자 : 성종천(mudchobo@nate.com)
-// 블로그 : http://mudchobo.tomeii.com/
-// 프로그램 : 할리갈리 클라이언트 프로그램
-/////////////////////////////////////////////////////
 
 import java.awt.BorderLayout;
 import java.awt.Container;
