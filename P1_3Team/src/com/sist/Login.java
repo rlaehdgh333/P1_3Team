@@ -17,7 +17,7 @@ public class Login extends JPanel{
 	 */	
 	public Login()
 	{
-		back=getToolkit().getDefaultToolkit().getImage("C:\\image\\back.jpg");
+		back=getToolkit().getDefaultToolkit().getImage("image/back.jpg");
 		la1=new JLabel("ID");
 		la2=new JLabel("PWD");
 		tf=new JTextField();
