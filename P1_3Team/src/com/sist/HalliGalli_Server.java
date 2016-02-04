@@ -1,10 +1,4 @@
 package com.sist;
-/////////////////////////////////////////////////////
-
-// 제작자 : 성종천(mudchobo@nate.com)
-// 블로그 : http://mudchobo.tomeii.com/
-// 프로그램 : 할리갈리 서버 프로그램
-/////////////////////////////////////////////////////
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
